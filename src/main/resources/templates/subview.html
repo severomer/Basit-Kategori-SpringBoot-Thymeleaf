@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<title>Category Page</title>
+	
+	
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
+	
+</head>
+
+<body>
+
+
+<h2>SubCategory Page</h2>
+
+<hr>
+
+
+<div class="container">
+
+	<h3>Categories from Service</h3>
+
+	<hr>
+		
+	<table class="table table-bordered table-striped">
+		<thead class = "thead dark">
+			<tr>
+
+				<th>Category</th>
+				<th>Id</th>
+				<th>Level</th>
+<!-- 				<th>ParentId</th> -->
+			</tr>
+			
+			
+		</thead>
+		
+		<tbody>
+		<th:block th:each="cat : ${subcats}">
+			<tr>
+			
+				<td> <a th:href="@{/subview?catId={path}(path=${cat.id})}" 
+                th:text="${cat.name}"> </a> </td>
+				<td th:text="${cat.id}" />	
+				<td th:text="${cat.level}" />	
+<!-- 				<td th:text="${cat.parent.getId()}" />	 -->
+				
+			</tr>
+			</th:block>
+		</tbody>		
+	</table>
+	
+</div>	
+
+
+<a th:href="@{/}">Back to Home Page</a>
+
+
+</body>
+
+</html>
+
+
